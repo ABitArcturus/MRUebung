@@ -63,7 +63,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       if (QueryArgs.getBool('usePolyfill', true)) {
         let polyfill = new WebXRPolyfill();
       }
-      console.log("test");
+      
       // Inline sessions, by default, us a vertical field of view of 90 degrees
       // when computing projection matrices. If an application wants to use a
       // different FoV for inline sessions it can be specified by setting the
@@ -109,6 +109,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       scene.addNode(new SkyboxNode({url: 'media/textures/milky-way-4k.png'}));
 
       function initXR() {
+        console.log("test");
         xrButton = new WebXRButton({
           onRequestSession: onRequestSession,
           onEndSession: onEndSession
