@@ -97,6 +97,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
       // XR globals.
       let xrButton = null;
+      let xrButton2 = null; //4 inline-session
       let xrImmersiveRefSpace = null;
       let xrInlineRefSpace = null;
 
@@ -115,6 +116,14 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
           onEndSession: onEndSession
         });
         document.querySelector('header').appendChild(xrButton.domElement);
+
+        xrButton2 = new WebXRButton({
+          onRequestSession: onRequestSession,
+          onEndSession: onEndSession,
+          textEnterXRTitle: "START AR",
+          textXRNotFoundTitle: "AR NOT FOUND",
+          textExitXRTitle: "EXIT  AR",
+        });
 
         if (navigator.xr) {
           navigator.xr.isSessionSupported('immersive-vr').then((supported) => {
