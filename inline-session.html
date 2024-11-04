@@ -109,7 +109,10 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     let scene = new Scene();
     let solarSystem = new Gltf2Node({ url: 'media/gltf/space/space.gltf' });
     scene.addNode(solarSystem);
-    scene.addNode(new SkyboxNode({ url: 'media/textures/milky-way-4k.png' }));
+    // scene.addNode(new SkyboxNode({ url: 'media/textures/milky-way-4k.png' }));
+    let skybox = new SkyboxNode({url: 'media/textures/milky-way-4k.png'}); // MR UEB 4 inline session
+    scene.addNode(skybox); // MR UEB 4 inline session
+
 
     function initXR() {
       console.log("test");
@@ -120,6 +123,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       });
       document.querySelector('header').appendChild(xrButton.domElement);
 
+      // MR UEB 4 inline session
       xrButton2 = new WebXRButton({
         onRequestSession: onRequestSession2,
         onEndSession: onEndSession,
@@ -129,6 +133,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       });
       document.querySelector('header').appendChild(xrButton2.domElement);
 
+      // MR UEB 4 inline session
       if (navigator.xr) {
         navigator.xr.isSessionSupported('immersive-vr').then((supported) => {
           xrButton.enabled = supported;
@@ -165,7 +170,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       // MR UEB 4 inline session
       return navigator.xr.requestSession('immersive-ar')
         .then((session) => {
-          xrButton.setSession(session);
+          xrButton2.setSession(session);
           session.isImmersive = true;
           onSessionStarted(session);
         });
